@@ -3,7 +3,7 @@ languageCode = 'en-gb'
 title = 'oxborrow.net'
 
 [params]
-  AuthorName = 'Toby Oxborrow'
+    AuthorName = 'Toby Oxborrow'
 
 [menu]
 [[menu.main]]
@@ -14,3 +14,18 @@ title = 'oxborrow.net'
     name = 'Blog'
     pageRef = '/blog'
     weight = 2
+[[menu.remote]]
+    name = 'Links'
+    url = 'https://pinboard.in/u:tobyoxborrow/'
+    weight = 91
+[[menu.remote]]
+    name = 'Social'
+    url = 'https://infosec.exchange/@kanzenmaster'
+    weight = 92
+	[menu.remote.params]
+        rel = 'me'
+		class = 'bloop'
+[[menu.remote]]
+    name = 'Career'
+    url = 'https://www.linkedin.com/in/tobyoxborrow/'
+    weight = 93

@@ -2,21 +2,28 @@
 Renders a menu for the given menu ID.
 
 @context {page} page The current page.
-@context {string} menuID The menu ID.
+@context {string} menuID The local menu ID.
+@context {string} menuID The remote menu ID.
 
-@example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+@example: {{ partial "menu.html" (dict "menuID" "main" "menuRemoteID" "remote" "page" .) }}
 */}}
 
 {{- $page := .page }}
 {{- $menuID := .menuID }}
+{{- $menuRemoteID := .menuRemoteID }}
 
+<nav>
 {{- with index site.Menus $menuID }}
-  <nav>
-    <ul>
+    <ul class="local">
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
     </ul>
-  </nav>
 {{- end }}
+{{- with index site.Menus $menuRemoteID }}
+    <ul class="remote">
+      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+    </ul>
+{{- end }}
+</nav>
 
 {{- define "partials/inline/menu/walk.html" }}
   {{- $page := .page }}
