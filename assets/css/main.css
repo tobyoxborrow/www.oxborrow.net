@@ -6,7 +6,6 @@ body {
 	padding: 0;
 	text-align: centre;
 }
-
 header {
 	border-top: 8px solid #E0E0E2;
 	margin: 0 auto;
@@ -30,6 +29,10 @@ footer {
 	text-align: left;
 	width: 700px;
 }
+
+
+
+/* header */
 
 header h1 {
 	border-bottom: 2px solid #E0E0E2;
@@ -68,6 +71,17 @@ nav a:link, nav a:visited {
 nav .local { float: left; }
 nav .remote  { float: right; }
 
+
+
+/* pages */
+
+main h1 {
+	font-family: "georgia", "trebuchet ms", sans-serif;
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 0.5em 0 0;
+}
+
 #showcases {
 	display: grid;
 	grid-template-columns: 19em 19em;
@@ -101,63 +115,63 @@ nav .remote  { float: right; }
 	margin-top: 0;
 }
 
-.inline-image { text-align: center; margin: 1em 0; }
-.inline-image img { border: 2em solid black; }
-img.borderless { border: 0; }
-.inset-image {
-	float: right;
-	margin-top: 1em;
-	margin-left: 1em;
-	margin-right: 0;
-	margin-bottom: 1em;
-}
 
-.thumbnail-grid {
-	display: grid;
-	grid-template-columns: 210px 210px;
-	justify-content: center;
-}
-.thumbnail-grid img {
-	margin: 0 auto;
-	border: 1px solid #E0E0E2;
-}
 
-.post-head {
+/* posts */
+main h2 {
 	border-bottom: 1px solid #E0E0E2;
 	font-family: "georgia", "trebuchet ms", sans-serif;
 	font-size: 1.3em;
 	font-weight: bold;
 	margin: 4em 0 0.2em;
 }
-.post-date {
+main h2 a:link, main h2 a:visited {
+	text-decoration: none;
+	color: #333;
+}
+a:link, a:visited {
+	color: #C03926;
+}
+main time {
 	font-size: 0.8em;
 	color: #888;
 }
+ul { list-style: square; }
+
 .code {
 	font-family: monospace;
 	font-size: 1em;
 }
 
 
-h1 {
-	border-bottom: 2px solid #E0E0E2;
-	font-family: "georgia", "trebuchet ms", sans-serif;
-	font-size: 1.5em;
-	font-weight: bold;
-	margin: 0.5em 0 0.2em;
+
+/* post images */
+img.borderless { border: 0; }
+.hero {
+	text-align: center;
+	margin: 1em 0;
 }
-h2 {
-	border-bottom: 1px solid #E0E0E2;
-	font-family: "georgia", "trebuchet ms", sans-serif;
-	font-size: 1.2em;
-	font-weight: bold;
-	margin: 1em 0 0.2em;
+.hero img { border: 2em solid black; }
+.thumbnail {
+	text-align: center;
+	margin: 1em 0;
 }
-a:link, a:visited {
-	color: #C03926;
+.thumbnail img { border: 1px solid #E0E0E2; }
+.inset {
+	float: right;
+	margin-top: 1em;
+	margin-left: 1em;
+	margin-right: 0;
+	margin-bottom: 1em;
 }
-ul { list-style: square; }
-h1 a:link, h1 a:visited, h2 a:link, h2 a:visited {
-	text-decoration: none;
+.thumbnail-grid {
+	display: grid;
+	grid-template-columns: 210px 210px;
+	justify-content: center;
+}
+figcaption {
 	color: #333;
+	font: italic smaller sans-serif;
+	padding: 3px;
+	text-align: center;
 }
