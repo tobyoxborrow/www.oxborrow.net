@@ -5,6 +5,12 @@ title = 'oxborrow.net'
 [params]
     AuthorName = 'Toby Oxborrow'
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+
 [menu]
 [[menu.main]]
     name = 'Home'
