@@ -1,0 +1,124 @@
+body {
+	color: #333;
+	font-family: verdana,sans-serif;
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+	text-align: centre;
+}
+
+header {
+	border-top: 8px solid #E0E0E2;
+	margin: 0 auto;
+	padding: 0;
+	text-align: left;
+	width: 700px;
+}
+main {
+	margin: 4em auto 0;
+	padding: 0;
+	text-align: left;
+	width: 700px;
+}
+footer {
+	border-bottom: 18px solid #E0E0E2;
+	margin: 4em auto 0;
+	padding: 0;
+	font-size: 0.8em;
+	font-style: italic;
+	color: #888;
+	text-align: left;
+	width: 700px;
+}
+
+header h1 {
+	border-bottom: 2px solid #E0E0E2;
+	font-family: "georgia", "trebuchet ms", sans-serif;
+	font-size: 2.0em;
+	font-weight: bold;
+	margin: 0.7em 0 0.3em;
+	padding: 0;
+}
+#header-logo { display: none; }
+#header-waffle { display: none; }
+
+nav {
+	margin: 0 0 2em;
+	padding: 0;
+	text-transform: lowercase;
+	font-size: 0.9em;
+}
+nav ul { 
+	list-style: none; 
+	margin: 0; 
+	padding: 0; 
+}
+nav li {
+	display: inline;
+	margin-left: 0;
+	padding-left: 0;
+}
+nav li:not(:last-child) {
+	margin-right: 1em;
+}
+nav a:link, nav a:visited {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#showcases {
+	display: grid;
+	grid-template-columns: 19em 19em;
+	justify-content: center;
+	margin: 4em 0 0;
+	padding: 0;
+}
+.showcase-item {
+	text-align: center;
+	margin: 0 auto 3em;
+	padding: 0;
+}
+.showcase-image {
+	float: left;
+	width: 5em;
+	height: 5em;
+	text-align: left;
+}
+.showcase-image img {
+	max-width: 5em;
+	max-height: 5em;
+}
+.showcase-description {
+	float: left;
+	text-align: left;
+	width: 14em;
+	font-size: 0.9em;
+	margin-left: 1em;
+}
+.showcase-description p {
+	margin-top: 0;
+}
+
+
+h1 {
+	border-bottom: 2px solid #E0E0E2;
+	font-family: "georgia", "trebuchet ms", sans-serif;
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 0.5em 0 0.2em;
+}
+h2 {
+	border-bottom: 1px solid #E0E0E2;
+	font-family: "georgia", "trebuchet ms", sans-serif;
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 1em 0 0.2em;
+}
+a:link, a:visited {
+	color: #C03926;
+}
+ul { list-style: square; }
+h1 a:link, h1 a:visited, h2 a:link, h2 a:visited {
+	text-decoration: none;
+	color: #333;
+}

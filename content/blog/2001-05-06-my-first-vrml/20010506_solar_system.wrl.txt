@@ -1,0 +1,220 @@
+#VRML V1.0 ascii
+
+# simlistic representation of our solar system (not to scale)
+#
+# Toby Oxborrow (oxborrow.net)
+#
+
+
+
+Separator {	# the sun
+
+	Material {
+		emissiveColor	1 0.8 0
+		diffuseColor	1 0.8 0
+	}
+
+	Transform {
+		translation		-40 0 -50
+	}
+
+	Sphere { radius 30 }
+
+}
+
+
+Separator {	#	planets
+
+	# light planets on side facing the sun
+	DirectionalLight {
+		on         TRUE
+		intensity  2
+		color      1 1 1
+		direction  1 0 0
+	}
+
+
+	Separator {	# mercury
+
+		Material {
+			diffuseColor	1 0.5 0
+		}
+
+		Transform {
+			translation		-5 0 -50
+		}
+
+		Sphere { radius 0.2 }
+
+	}
+
+
+
+
+
+	Separator {	# venus
+
+		Material {
+			diffuseColor	1 0 0
+		}
+
+		Transform {
+			translation		-2 0 -50
+		}
+
+		Sphere { radius 0.5 }
+
+	}
+
+
+
+
+	Separator {	# earth
+
+		Texture2 { filename "blue2.jpg" }
+
+		Material {
+			diffuseColor	0.3 0.4 0.5
+		}
+
+		Transform {
+			translation		1 0 -50
+		}
+
+		Sphere { radius 0.6 }
+
+	}
+
+
+
+	Separator {	# mars
+
+		Material {
+			diffuseColor	1 0.5 0
+		}
+
+		Transform {
+			translation		4 0 -50
+		}
+
+		Sphere { radius 0.3 }
+
+	}
+
+
+
+
+	Separator {	# jupiter
+
+		Texture2 { filename "red.jpg" }
+
+		Material {
+			diffuseColor	1 0.8 0
+		}
+
+		Transform {
+			translation		11 0 -50
+		}
+
+		Sphere { radius 2.3 }
+
+	}
+
+
+
+
+
+	Separator {	# saturn
+
+		# they share the same point of origin
+		Transform {
+			translation		16.5 0 -50
+		}
+
+		Separator {	# rings
+			Material {
+				diffuseColor	0.6 0.3 0
+			}
+
+			Rotation {
+				rotation  0 0 -1  45
+			}
+
+			Cylinder {
+				radius 3
+				height 0.01
+			}
+		}
+
+		Separator {	# the planet
+			Texture2 { filename "yellow.jpg" }
+
+			Material {
+				diffuseColor	1 0.8 0
+			}
+
+			Sphere { radius 2 }
+		}
+
+	}
+
+
+
+
+
+
+
+	Separator {	# uranus
+
+		Texture2 { filename "blue.jpg" }
+
+		Material {
+			diffuseColor	0.5 0.8 1
+		}
+
+		Transform {
+			translation		21 0 -50
+		}
+
+		Sphere { radius 1.6 }
+
+	}
+
+
+
+
+
+	Separator {	# neptune
+
+		Texture2 { filename "blue2.jpg" }
+
+		Material {
+			diffuseColor	0.3 0.6 0.8
+		}
+
+		Transform {
+			translation		25 0 -50
+		}
+
+		Sphere { radius 1.6 }
+
+	}
+
+
+
+
+	Separator {	# pluto
+
+		Material {
+			diffuseColor	1 0.5 0.5
+		}
+
+		Transform {
+			translation		28 0 -50
+		}
+
+		Sphere { radius 0.2 }
+
+	}
+
+}
