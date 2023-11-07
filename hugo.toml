@@ -20,6 +20,18 @@ title = 'oxborrow.net'
     name = 'Blog'
     pageRef = '/blog'
     weight = 2
+[[menu.main]]
+    name = 'Tech'
+    pageRef = '/tech'
+    weight = 2
+[[menu.main]]
+    name = 'Pics'
+    pageRef = '/pics'
+    weight = 3
+[[menu.main]]
+    name = 'Grim Dark'
+    pageRef = '/grimdark'
+    weight = 4
 [[menu.remote]]
     name = 'Links'
     url = 'https://pinboard.in/u:tobyoxborrow/'
