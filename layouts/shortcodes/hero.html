@@ -1,7 +1,7 @@
 {{ with .Get "target" }}
 {{ $target := $.Page.Resources.GetMatch (printf "*%s*" ($.Get "target")) }}
-{{ $thumb := $target.Process "resize 170x webp q70" }}
-<figure class="thumbnail">
+{{ $thumb := $target.Process "resize 400x webp q70" }}
+<figure class="hero">
   <a href="{{ $target.RelPermalink }}">
     <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" />
   </a>
