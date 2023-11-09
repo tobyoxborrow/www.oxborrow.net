@@ -5,7 +5,6 @@ draft = false
 tags = ['pics']
 +++
 
-![](5970622021_d36e9c1e94.jpg)
-{class="hero"}
+{{< hero src="5970622021_d36e9c1e94.jpg" >}}
 
 Cute little cable adaptors from a server.

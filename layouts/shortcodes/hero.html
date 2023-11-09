@@ -1,10 +1,10 @@
-{{ with .Get "target" }}
-{{ $target := $.Page.Resources.GetMatch (printf "*%s*" ($.Get "target")) }}
-{{ $thumb := $target.Process "resize 400x webp q70" }}
+{{ with .Get "src" }}
+{{ $src := $.Page.Resources.GetMatch (printf "*%s*" ($.Get "src")) }}
+{{ $thumb := $src.Process "resize 400x webp q70" }}
 <figure class="hero">
-  <a href="{{ $target.RelPermalink }}">
+  {{ if ge $src.Width 800 }}<a href="{{ $src.RelPermalink }}">{{ end }}
     <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" />
-  </a>
+  {{ if ge $src.Width 800 }}</a>{{ end }}
   {{ if $.Get "caption" }}<figcaption>{{ $.Get "caption" }}</figcaption>{{ end }}
 </figure>
 {{ end }}

@@ -15,4 +15,4 @@ Annoyingly, the harlequins box is not enough models for a full troupe in Kill Te
 
 The Grey Knights can be Grey Knights, but I was also keen to have some renegade space marines and thought the Grey Knights might suit acting as Relictors. Both are grey and have a thing for demons.
 
-{{< hero target="IMG_2144.jpg" >}}
+{{< hero src="IMG_2144.jpg" >}}
