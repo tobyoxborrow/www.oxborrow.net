@@ -1,6 +1,7 @@
 +++
 title = 'Tech'
 draft = false
+layout = 'tech'
 +++
 
 # Tech

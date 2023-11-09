@@ -1,6 +1,7 @@
 +++
 title = 'Pics'
 draft = false
+layout = 'pics'
 +++
 
 # Pics

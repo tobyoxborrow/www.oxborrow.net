@@ -2,6 +2,7 @@
 title = 'New Kill Teams'
 date = 2022-01-03T00:19:11+09:00
 draft = false
+tags = ['grimdark']
 +++
 My friendly local game store had an end of year sale and since I've done such a good job on my backlog I think it's okay to pick up a few more future Kill Teams.
 

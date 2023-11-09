@@ -5,7 +5,7 @@ draft = false
 tags = ['tech']
 +++
 
-### network
+### Network
 
 My home network currently consists of four computers, made up of three workstations and a firewall.
 The Network is TCP/IP based, with each computer connected to my eight port hub, although my recent addition to my network, nikita the laptop, can optionally connect via it's WiFi interface so I can stroll around the house (annoyingly not as far as I would like) and still stay online.

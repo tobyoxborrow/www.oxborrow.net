@@ -1,6 +1,7 @@
 +++
 title = 'Grim Dark'
 draft = false
+layout = 'grimdark'
 +++
 
 # Welcome
