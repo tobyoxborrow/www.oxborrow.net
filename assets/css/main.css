@@ -148,9 +148,8 @@ main time {
 }
 ul { list-style: square; }
 
-.code {
-	font-family: monospace;
-	font-size: 1em;
+pre {
+	padding: 1em;
 }
 
 
