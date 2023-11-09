@@ -64,9 +64,6 @@ sub createHugoContentFile
 		if ($date eq shortDate()) {
 			# if the date was the default, we can use the real time
 			$date = longDate();
-		} else {
-			# otherwise, dummy time
-			$date = "${date}T10:00:00+09:00"
 		}
 	}
 
