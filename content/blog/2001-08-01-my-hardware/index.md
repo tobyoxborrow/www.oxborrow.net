@@ -17,4 +17,4 @@ Workstations:
 Servers:
 - akira (firewall/router, smoothwall)
 
-{{< hero target="my_hardware.jpg" >}}
+{{< hero src="my_hardware.jpg" >}}
