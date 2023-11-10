@@ -4,7 +4,10 @@
   {{ if ge $src.Width 800 }}<a href="{{ $src.RelPermalink }}">{{ end }}
     {{ if gt $src.Width 400 }}
     {{ $thumb := $src.Process "resize 400x webp q70" }}
-    <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"{{ if $.Get "class" }} class="{{ $.Get "class" }}"{{ end }} />
+    {{ if lt $src.Width $src.Height }}
+      {{ $thumb = $src.Process "resize x400 webp q70" }}
+    {{ end }}
+        <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"{{ if $.Get "class" }} class="{{ $.Get "class" }}"{{ end }} />
     {{ else }}
     <img src="{{ $src.RelPermalink }}" width="{{ $src.Width }}" height="{{ $src.Height }}"{{ if $.Get "class" }} class="{{ $.Get "class" }}"{{ end }} />
     {{ end }}
