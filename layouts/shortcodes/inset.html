@@ -1,6 +1,6 @@
 {{ with .Get "src" }}
 {{ $src := $.Page.Resources.GetMatch (printf "*%s*" ($.Get "src")) }}
-<div class="inset-image">
+<div class="inset">
     <img src="{{ $src.RelPermalink }}" width="{{ $src.Width }}" height="{{ $src.Height }}" />
 </div>
 {{ end }}

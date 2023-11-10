@@ -161,11 +161,13 @@ img.borderless { border: 0; }
 	margin: 1em 0;
 }
 .hero img { border: 2em solid black; }
+.hero img.borderless { border: 0; }
 .thumbnail {
 	text-align: center;
 	margin: 1em 0;
 }
 .thumbnail img { border: 1px solid #E0E0E2; }
+.thumbnail img.borderless { border: 0; }
 .inset {
 	float: right;
 	margin-top: 1em;
