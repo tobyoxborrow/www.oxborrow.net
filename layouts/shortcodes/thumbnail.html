@@ -6,7 +6,7 @@
 {{ end }}
 <figure class="thumbnail">
   <a href="{{ $src.RelPermalink }}">
-    <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" />
+    <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"{{ if $.Get "class" }} class="{{ $.Get "class" }}"{{ end }} />
   </a>
   {{ if $.Get "caption" }}<figcaption>{{ $.Get "caption" }}</figcaption>{{ end }}
 </figure>
