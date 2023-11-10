@@ -150,6 +150,7 @@ ul { list-style: square; }
 
 pre {
 	padding: 1em;
+	white-space: pre-wrap;
 }
 
 
