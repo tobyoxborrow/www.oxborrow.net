@@ -1,0 +1,10 @@
+{{ with .Get "src" }}
+{{ $src := $.Page.Resources.GetMatch (printf "*%s*" ($.Get "src")) }}
+{{- if $.Get "link" -}}<a href="{{ $.Get "link" }}">{{- end -}}
+<img src="{{ $src.RelPermalink }}" width="{{ $src.Width }}" height="{{ $src.Height }}"
+{{- if $.Get "alt" }} alt="{{ $.Get "alt" }}"{{ end -}}
+{{- if $.Get "title" }} title="{{ $.Get "title" }}"{{ end -}}
+{{- if $.Get "class" }} class="{{ $.Get "class" }}"{{ end -}}
+  />
+{{- if $.Get "link" -}}</a>{{- end -}}
+{{ end }}
