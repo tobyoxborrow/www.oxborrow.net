@@ -1,0 +1,41 @@
+#!/bin/sh
+# wataru.oxborrow.net /etc/rc.d/rc.local
+#
+# /etc/rc.d/rc.local:  Local system initialization script.
+#
+# Put any local setup commands in here:
+
+# improve IDE I/O performance by around 10MB/sec (from 4MB/sec to 14MB/sec)
+/usr/sbin/hdparm -c3 -m16 -k1 /dev/hda
+/usr/sbin/hdparm -c3 /dev/dvd
+#based on...
+#http://www.ecst.csuchico.edu/~dranch/LINUX/TrinityOS/cHTML/TrinityOS-c-48.html
+
+
+# nvidia graphics card driver
+#insmod NVdriver
+
+
+# iomega zip250 driver
+insmod imm
+
+
+# d.net
+#/usr/src/dnetc/dnetc -hide
+#cd /usr/src/john-1.6/run/
+#nice -n 20 ./john -restore&
+#nice -n 20 ./john -restore:toby&
+
+
+# turn off biff (wouldnt uninstalling it be better :)
+#biff n
+
+
+# fetchmail 
+# low timeout so boots arnt slowed too much when network is down
+# fetchmail -d 300 --silent --timeout 20 -f /home/toby/.fetchmailrc
+
+
+# restore mixer settings
+/usr/local/bin/mixer -master=85 -cd=85 -dsp=85 -line=85
+

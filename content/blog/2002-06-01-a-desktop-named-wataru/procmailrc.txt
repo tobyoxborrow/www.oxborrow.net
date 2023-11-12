@@ -1,0 +1,107 @@
+# wataru.oxborrow.net ~/.procmailrc
+
+SHELL=/bin/sh
+MAILDIR=$HOME/mail
+VERBOSE=yes
+
+PMDIR=$HOME/.procmail			# Directory for storing procmail log and rc files
+LOGFILE=$PMDIR/procmaillog
+SPAMFILE=$MAILDIR/spam
+#INCLUDERC=$PMDIR/rc.testing
+#INCLUDERC=$PMDIR/rc.maillists
+#MONTHFOLDER=`date +%y-%m`
+
+#------------------------------------------------------------------------------
+#
+#	backup the last 32 messages
+#
+:0 c
+backup
+
+:0 ic
+| cd backup && rm -f dummy `ls -t msg.* | sed -e 1,32d`
+
+
+
+
+#------------------------------------------------------------------------------
+#
+#	you are the weekest link... goodbye
+#
+:0
+* ^TO_devnull@oxborrow.net
+/dev/null
+
+
+
+
+
+#------------------------------------------------------------------------------
+#
+#	thecounter
+#
+:0:
+* ^From.*(\
+TheCounter\
+|CounterProfessional)
+counters
+
+
+
+
+
+#------------------------------------------------------------------------------
+#
+#	only-yellow-pages.com
+#
+:0:
+* ^From.*only-yellow-pages.*
+$SPAMFILE
+
+
+
+
+#------------------------------------------------------------------------------
+#
+#	cfm-resources
+#
+:0:
+* ^From.*@cfm-resources.com.*
+$SPAMFILE
+
+
+
+
+
+#------------------------------------------------------------------------------
+#
+#	Spam catchers
+#
+# X-Advertisement header = spam!
+:0:
+* ^X-Advertisement:.*
+$SPAMFILE
+
+# To nobody!
+:0:
+* To:[ ]*$
+$SPAMFILE
+
+# No "To:" header at all!
+:0:
+* !^To: .*
+$SPAMFILE
+
+# you have sucky sucky email address... bye bye
+:0:
+* ^From.*@(msn\.com|yahoo\.com|only\.com|surf3\.net)
+$SPAMFILE
+
+# key words
+:0 B:
+*lick here to learn more*
+$SPAMFILE
+
+:0 B:
+*toll free .* (usa?|canada|call)
+$SPAMFILE

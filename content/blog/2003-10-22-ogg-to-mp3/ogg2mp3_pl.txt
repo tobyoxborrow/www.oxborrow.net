@@ -1,0 +1,157 @@
+#!/usr/bin/perl
+
+#
+# Convert OGG files to MP3
+# Copyright Toby Oxborrow http://www.oxborrow.net/
+# 
+# If you specify the location to the program 'ogginfo' id3v1 and id3v2 will be set to the newly created MP3 too
+#
+# Usage: ogg2mp3.pl <path to directory containing OGG files>
+#
+
+
+
+use strict;
+use warnings;
+use diagnostics;
+
+
+
+
+# Paths to programs
+my $OGGDEC	= '/usr/bin/oggdec';	# Example, oggdec (part of vorbis-tools) -- 
+my $MP3ENC	= '/usr/bin/lame';	# Example, lame -- http://lame.sourceforge.net/
+						# for win32 bin -- http://www.hot.ee/smpman/mp3/
+
+# if set, this script will detect what bitrate the OGG was encoded at, and use similar options for the MP3
+# ogginfo also can tell us the tag/comments for the file (title etc), which will be set to the MP3 if found
+my $OGGINFO	= '/usr/bin/ogginfo';
+
+# when complete, beep!
+# this is optional, if beep doesnt exist, then it'll be ignored
+my $BEEP		= '/usr/bin/beep';
+my $BEEP_OPTIONS	= '-f 400 -l 100';
+
+my $DELETE_WAVS_WHEN_DONE	= 1;	# Delete .wav files created from decoding OGGs when the MP3 is made
+
+# Options for programs
+my $OGGDEC_OPTIONS	= '--quiet';	# Options to pass to the OGG decoder
+my $MP3ENC_OPTIONS	= '-S -h --add-id3v2 --pad-id3v2';	# Options to pass to the MP3 encoder
+my $MP3ENC_ABR		= '--abr';	# The option for ABR (Average bit rate)
+					# LAME's USAGE suggests OGG uses ABR, so for similar sounding MP3, we'll use ABR too
+my $MP3ENC_DEFAULT_ABR	= '160';	# Default ABR to use if it cannot be determined by ogginfo
+
+my $WORKING_DIR		= '';		# Directory containing OGG files to convert (WAV and MP3s will be written here too)
+					# You can set a value here, but it is easier to pass it as an argument to the script
+
+
+
+&main;
+
+sub main
+{
+	$WORKING_DIR = $ARGV[0];
+	
+	&checks;
+	
+	&convertFiles;
+
+	if (-e $BEEP) {
+		`$BEEP $BEEP_OPTIONS`;
+	}
+
+}
+
+
+sub checks
+{
+	if (!$WORKING_DIR) {
+		die "Usage: $0 <directory containing oggs>\n";
+	}
+	
+	if (!-e $OGGDEC) {
+		die "Ogg Decoder not found at '$OGGDEC'\n";
+	} elsif (!-e $MP3ENC) {
+		die "MP3 Encoder not found at '$MP3ENC'\n";
+	} elsif (!-d $WORKING_DIR) {
+		die "Working Directory not found at '$WORKING_DIR'\n";
+	}
+}
+
+
+sub convertFiles
+{
+
+	my $c = 0;
+	
+	chdir $WORKING_DIR;
+	
+	opendir(WDIR, $WORKING_DIR) or die "Can not access the Working Directory '$WORKING_DIR':\n$!\n";
+	foreach my $entry (readdir(WDIR)) {
+		if (-d $entry) { next; }
+		if ($entry !~ m/\.ogg$/io) { next; }
+		&convert($entry);
+		$c++;
+	}
+	closedir(WDIR);
+	
+	if ($c == 0) { print "No OGG files found in '$WORKING_DIR'."; }
+
+}
+
+
+sub convert
+{
+	my $file = shift;
+	$file =~ m/^(.*)\.ogg$/io;
+	my $base_name = $1;
+	
+	
+	my $ogginfo_options = '';
+	
+	print "File: $file\n";
+	if ($OGGINFO) {
+		my $bitrate = $MP3ENC_DEFAULT_ABR;
+		my $tag_title = '';
+		my $tag_artist = '';
+		my $tag_genre = '';
+		my $tag_date = '';
+		my $tag_album = '';
+		my $tag_tracknumber = '';
+
+		print ' Getting info from OGG...';
+		
+		open(OGGINFO, "$OGGINFO \"$file\"|") or die "Can not execute '$OGGINFO':\n$!\n";
+		while (<OGGINFO>) {
+			if (m/^Nominal bitrate:\s+(\d+)\./io) { $bitrate = $1; }
+			if (m/^\s+title=(.*)$/io) { $tag_title = $1; }
+			if (m/^\s+artist=(.*)$/io) { $tag_artist = $1; }
+			if (m/^\s+genre=(.*)$/io) { $tag_genre = $1; }
+			if (m/^\s+date=(.*)$/io) { $tag_date = $1; }
+			if (m/^\s+album=(.*)$/io) { $tag_album = $1; }
+			if (m/^\s+tracknumber=(.*)$/io) { $tag_tracknumber = $1; }
+		}
+		close(OGGINFO);
+		
+		if (!$tag_date) { $tag_date = ''; }
+		if (!$tag_tracknumber) { $tag_tracknumber = ''; }
+		
+		$ogginfo_options = " $MP3ENC_ABR $bitrate --tt \"$tag_title\" --ta \"$tag_artist\" --tl \"$tag_album\" --ty \"$tag_date\" --tn \"$tag_tracknumber\" --tg \"$tag_genre\" ";
+		#print "$ogginfo_options\n\n";
+		
+		print " done.\n";
+	}
+	
+	print ' Decoding...';
+	`$OGGDEC $OGGDEC_OPTIONS "$file"`;
+	print " done.\n";
+	
+	print ' Creating MP3...';
+	`$MP3ENC $ogginfo_options $MP3ENC_OPTIONS "$base_name.wav" "$base_name.mp3"`;
+	print " done.\n";
+	
+	if ($DELETE_WAVS_WHEN_DONE) { unlink "$base_name.wav"; }
+	
+	print "\n--\n";
+	
+}

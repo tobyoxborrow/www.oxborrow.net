@@ -1,0 +1,183 @@
+# wataru.oxborrow.net /etc/X11/XF86Config
+#
+# Devices:
+# - Keyboard:	Logitech Cordless iTouch
+# - Mouse:	Microsoft IntelliMouse 1.1A PS/2 Compatible 
+# - Mouse:	Microsoft IntelliMouse Optical USB and PS/2 Compatible
+# - Monitor:	Belinea (10 50 35) AOC Spectrum 9Glrs
+# - Video:	Creative Graphics Blaster TNT2
+#
+
+# **********************************************************************
+# Module section -- this  section  is used to specify
+# which dynamically loadable modules to load.
+# **********************************************************************
+
+Section "Module"
+	Load "dbe"  	# Double buffer extension
+
+	SubSection "extmod"
+		Option	"omit xfree86-dga"   # don't initialise the DGA extension
+	EndSubSection
+
+	Load "type1"
+	Load "freetype"
+
+	Load "glx"
+EndSection
+
+# **********************************************************************
+# Files section.  This allows default font and rgb paths to be set
+# **********************************************************************
+
+Section "Files"
+	RgbPath	"/usr/X11R6/lib/X11/rgb"
+
+	FontPath "/usr/X11R6/lib/X11/fonts/local/"
+	FontPath "/usr/X11R6/lib/X11/fonts/misc/"
+	FontPath "/usr/X11R6/lib/X11/fonts/75dpi/:unscaled"
+#	FontPath "/usr/X11R6/lib/X11/fonts/100dpi/:unscaled"
+	FontPath "/usr/X11R6/lib/X11/fonts/Type1/"
+#	FontPath "/usr/X11R6/lib/X11/fonts/Speedo/"
+	FontPath "/usr/X11R6/lib/X11/fonts/75dpi/"
+#	FontPath "/usr/X11R6/lib/X11/fonts/100dpi/"
+#	FontPath "/mnt/dos-c/windows/fonts/"
+
+#	ModulePath "/usr/X11R6/lib/modules"
+
+EndSection
+
+# **********************************************************************
+# Server flags section.
+# **********************************************************************
+
+Section "ServerFlags"
+#	Option "NoTrapSignals"
+#	Option "DontZap"	# <Ctrl><Alt><BS>
+#	Option "Dont Zoom"	# <Ctrl><Alt><KP_+>/<KP_->
+#	Option "DisableVidModeExtension"
+#	Option "AllowNonLocalXvidtune"
+#	Option "DisableModInDev"
+#	Option "AllowNonLocalModInDev"
+EndSection
+
+# **********************************************************************
+# Input devices
+# **********************************************************************
+
+# **********************************************************************
+# Core keyboard's InputDevice section
+# **********************************************************************
+
+Section "InputDevice"
+	# Logitech Cordless iTouch
+	Identifier		"iTouch"
+	Driver "Keyboard"
+	Option "AutoRepeat"	"500 30"
+	Option "XkbRules"	"xfree86"
+	Option "XkbModel"	"pc105"
+	Option "XkbLayout"	"gb"
+	Option "XkbVariant"	""
+	Option "LeftAlt"	"Meta"
+	Option "RightAlt"	"Meta"
+	Option "RightCtl"	"Control"
+EndSection
+
+
+# **********************************************************************
+# Core Pointer's InputDevice section
+# **********************************************************************
+
+Section "InputDevice"
+	# Microsoft IntelliMouse 1.1A PS/2 Compatible 
+	Identifier		"MSIntelli"
+	Driver "mouse"
+	Option "Protocol"	"imps/2"
+	Option "Device"		"/dev/mouse"
+	Option "ZAxisMapping"	"4 5"
+EndSection
+
+Section "InputDevice"
+	# Microsoft IntelliMouse Optical USB and PS/2 Compatible
+	Identifier		"MSOptical"
+	Driver "mouse"
+	Option "Protocol"	"imps/2"
+	Option "Device"		"/dev/input/mice"
+	Option "ZAxisMapping"	"4 5"
+EndSection
+
+
+# **********************************************************************
+# Monitor section
+# **********************************************************************
+
+Section "Monitor"
+	# Belinea (10 50 35) AOC Spectrum 9Glrs
+	Identifier	"AOC9Glrs"
+	HorizSync	31-95
+	VertRefresh	50-150
+EndSection
+
+
+# **********************************************************************
+# Graphics device section
+# **********************************************************************
+
+Section "Device"
+	Identifier	"VGA"
+	VendorName	"Unknown"
+	BoardName	"Unknown"
+#	Chipset		"generic"
+	Driver		"vga"
+EndSection
+
+Section "Device"
+	# Creative Graphics Blaster TNT2
+	Identifier	"TNT2"
+#	Driver		"nvidia"
+	Driver		"nv"
+#	VideoRam	32768
+	Option		"NvAgp" "3"	# 0=noagp,1=nvidia,2=agpart,3=auto
+EndSection
+
+
+# **********************************************************************
+# Screen sections
+# **********************************************************************
+
+Section "Screen"
+	Identifier	"Screen 1"
+	Device		"TNT2"
+	Monitor		"AOC9Glrs"
+	DefaultDepth	24
+
+	Subsection "Display"
+		Depth       8
+		Modes       "640x480" "800x600" "1024x768" "1280x1024"
+		ViewPort    0 0
+	EndSubsection
+	Subsection "Display"
+		Depth       16
+		Modes       "1600x1200" "1024x768" "800x600" "640x480"
+		ViewPort    0 0
+	EndSubsection
+	Subsection "Display"
+		Depth       24
+		Modes       "1600x1200" "1280x1024" "1024x768" "800x600" "640x480"
+		ViewPort    0 0
+	EndSubsection
+EndSection
+
+
+# **********************************************************************
+# ServerLayout sections.
+# **********************************************************************
+
+Section "ServerLayout"
+	Identifier	"Simple Layout"
+	Screen		"Screen 1"
+	InputDevice	"MSIntelli"	"CorePointer"
+	InputDevice	"MSOptical"	"SendCoreEvents"
+	InputDevice	"iTouch"	"CoreKeyboard"
+EndSection
+

@@ -1,0 +1,247 @@
+/*
+ *	oxborrow.net blue theme
+ *  Date: 200205
+ */
+
+body,p,h1,h2,h3,h4,td,tr,input,select,textarea,button { font-family: Verdana, Arial, Helvetica, sans-serif; }
+body,p,td,tr,input,select,textarea,button { font-size: 11px; }
+body,p,td,input,select,textarea,button    { font-weight: normal; }
+h1,h2,h3,h4,a                             { font-weight: bold; }
+h1,h2,h3,h4,p                             { margin: 0px 0px 14px; padding: 0px; }
+ul,ol                                     { margin-top: 0px; margin-bottom: 14px; }
+input,.button,textarea,button,select      { border: 1px solid; }
+
+
+/*
+ *  individual core element attributes
+ */
+
+body    { 
+	margin: 0px; 
+	padding: 13px 0px 0px;
+	color: #CCCCCC;
+	background-color: #0088BB;
+}
+
+a       { color: #EEEEFF; text-decoration: none; }
+a:hover { color: #AAAAFF; text-decoration: underline; }
+
+h1,h2 { color: #FFFFFF; }
+
+h1 { font-size: 18px; }
+h2 { font-size: 16px; }
+
+.code {
+	padding: 6px;
+	font-family: 'Courier New', Courier, Fixed;
+	font-size: 1em;
+	line-height: 1.1em;
+	margin-bottom: 12px;
+}
+
+/*
+ *  custom element attributes
+ */
+
+/* the oxborrow.net banner container */
+#banner {
+	margin:    0px;
+	padding:   0px;
+	height:    48px;
+	min-width: 720px;
+	background-color: #224477;
+}
+#banner-text   { display: none; }
+#banner-logo   {
+	float: left;
+	margin-left: 20px;
+	background-image: url("logo.png");
+	background-repeat: no-repeat;
+	width: 280px;
+	height: 48px;
+}
+#banner-waffle {
+	float: right;
+	background-image: url("waffle.png");
+	background-repeat: no-repeat;
+	width: 84px;
+	height: 48px;
+}
+
+/* link bar container */
+#linkbar {
+	margin:    0px;
+	padding:   4px 10px 3px 40px;
+	height:    16px;
+	min-width: 720px;
+	background-color: #336688;
+}
+
+#linkbar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	display: flex;
+}
+
+#linkbar ul > li {
+	float: left;
+	margin: 0 0.4em 0 0;
+}
+
+#linkbar ul > li:not(:last-child)::after {
+	content: " : ";
+}
+
+#linkbar-local { float: left; }
+#linkbar-remote  { float: right; }
+
+/* showcases structure */
+#showcases { display: none; }
+#page-home #showcases {
+	display: grid;
+	grid-template-columns: 260px 260px 260px;
+	justify-content: center;
+	margin: 30px 40px 0px;
+	padding: 0;
+	min-width: 520px;
+	max-width: 780px;
+}
+#page-home #sidecases { display: none; }
+#sidecases {
+	display: grid;
+	grid-template-columns: 260px;
+	justify-content: center;
+	margin: 30px 40px 0px;
+	padding: 0;
+}
+.showcase-item {
+	text-align: center;
+	margin: 0 auto 3em;
+	padding: 0;
+}
+.showcase-image {
+	float: left;
+	width: 5em;
+	height: 5em;
+	text-align: left;
+}
+.showcase-image img {
+	max-width: 5em;
+	max-height: 5em;
+}
+.showcase-description {
+	float: left;
+	text-align: left;
+	width: 14em;
+	font-size: 0.8em;
+	margin-left: 1em;
+}
+.showcase-description p {
+	margin-top: 0;
+}
+
+/* flexbox structure */
+#content-wrapper { display: flex; width: 1200px; }
+#content   { flex-grow: 1; }
+#sideboxes { flex-basis: 300px; }
+
+/* introduction container */
+#intro {
+	margin: 30px 40px 0px;
+}
+.intro-head {
+	font-size: 1.7em;
+}
+
+/* posts container */
+#posts {
+	margin: 30px 40px 0px;
+	padding: 0;
+	min-width: 520px;
+	max-width: 780px;
+}
+
+/* posts */
+.post {
+	margin-bottom: 1em;
+	background-color: #0099CC;
+}
+.post-head {
+	margin: 0;
+	padding: 6px;
+	font-size: 1em;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #006699;
+}
+.post-date {
+	padding: 6px;
+	font-weight: normal;
+	color: #003399;
+}
+.post-body {
+	padding: 6px;
+	font-weight: normal;
+}
+
+.inline-image {
+	text-align: center;
+}
+
+.inline-image img {
+	border: 1px solid #003399;
+}
+
+.inline-image img.borderless {
+	border: 0;
+}
+
+.inset-image {
+	float: right;
+	margin-right: 12px;
+	margin-bottom: 12px;
+}
+
+.inset-image img {
+	border: 0;
+	margin-top: 1em;
+	margin-left: 1em;
+	margin-right: 0;
+	margin-bottom: 1em;
+}
+
+.thumbnail-grid {
+	display: grid;
+	grid-template-columns: 200px 200px;
+	justify-content: center;
+}
+
+.thumbnail-grid img {
+	margin-bottom: 12px;
+}
+
+
+/* sideboxes container */
+#sideboxes {
+	margin: 30px 0;
+	padding: 0;
+}
+
+/* sideboxes boxes */
+.sidebox {
+	margin: 0 40px 50px 0;
+	padding: 6px;
+	background-color: #11AADD;
+}
+
+/* side link container */
+#sidelinks { display: none; }
+
+/* footer */
+#footer {
+	margin:  0px;
+	padding: 30px 40px 0px;
+	min-width: 520px;
+}

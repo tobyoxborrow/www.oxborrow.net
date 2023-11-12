@@ -1,0 +1,24 @@
+#!/usr/local/bin/perl
+#
+# ----------------------------------------------------------------------------
+#
+#  BOFH excuse server
+#
+#  Toby Oxborrow <oxborrow.net>
+#  August 2001
+#
+# ----------------------------------------------------------------------------
+
+use strict;
+
+my @quotes;
+
+open (FH, '<bofh_excuses.txt') || die "File error: $!\n";
+@quotes = <FH>;
+close FH;
+
+my $r = $quotes[int(rand @quotes)];
+
+chomp $r;
+
+print $r;

@@ -10,8 +10,8 @@ For my Mutlimedia HND (Higher National Diploma) today I made a simplistic model 
 
 It is purly to demonstrate VRML, much better things can be achieved with more time. The whole world is 36.8kb so should take about 5-10s to download on a 56k modem.
 
-- [View the solar system](solar_system.wrl) (VRML, requires plugin)
-- [Source code](solar_system.wrl.txt) (Plain text)
+- {{< resource text="View the solar system" src="solar_system.wrl" >}} (VRML, requires plugin)
+- {{< resource text="Source code" src="solar_system.wrl.txt" >}} (Plain text)
 
 To view VRML worlds you need a plug-in for your browser.
 

@@ -1,0 +1,41 @@
+#!/usr/bin/perl
+#
+# nikita.oxborrow.net: /etc/acpi/acpi_events.pl
+#
+# acpid event handler
+# called via /etc/acpi/events/default
+#
+
+use strict;
+use warnings;
+
+my ($source,$sub_source) = split('/', $ARGV[0]);
+my $x1 = $ARGV[1];
+my $x2 = $ARGV[2];
+my $x3 = $ARGV[3];
+
+
+if ($source eq 'button') {
+
+	# shutdown
+	if ($sub_source eq 'power') {
+		system('/sbin/shutdown -h now');
+	}
+
+} elsif ($source eq 'ac_adapter') {
+
+	system('perl /etc/acpi/acpi_pwr.pl');
+
+} elsif ($source eq 'button') {
+
+	# lid closed
+	if ($x3 == 1) {
+		# send hdd to sleep now
+		system('/sbin/hdparm -y /dev/hda');
+
+	# lid opened
+	} elsif ($x3 == 2) {
+		# nothing for now
+	}
+
+}

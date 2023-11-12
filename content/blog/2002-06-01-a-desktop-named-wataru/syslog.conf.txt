@@ -1,0 +1,16 @@
+# wataru.oxborrow.net /etc/syslog
+#
+
+*.warn;*.err					/var/log/syslog
+mail.*						/var/log/maillog
+auth.*;user.*;daemon.none			/var/log/loginlog
+kern.*						/var/log/kernel
+
+*.=info;*.=notice				/var/log/messages
+
+*.warn;*.err					/dev/tty11
+kern.*						/dev/tty12
+
+# I'm no kernel hacker
+#*.=debug					/var/adm/debug
+

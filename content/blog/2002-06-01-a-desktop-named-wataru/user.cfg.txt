@@ -1,0 +1,119 @@
+<Eterm-0.9.1>
+# wataru.oxborrow.net ~/.Eterm/themes/Eterm/user.cfg
+#
+begin color
+    foreground white
+    background black
+    cursor #ffff00
+    cursor_text #880000
+    pointer white
+    video normal
+    color 0 #000000
+    color 1 #aa0000
+    color 2 #008800
+    color 3 #aa5522
+    color 4 #0000aa
+    color 5 #aa00aa
+    color 6 #00aaaa
+    color 7 #aaaaaa
+    color 8 #444444
+    color 9 #ff4444
+    color 10 #44ff44
+    color 11 #ffff44
+    color 12 #4444ff
+    color 13 #ff44ff
+    color 14 #44ffff
+    color 15 #ffffff
+    color bd #ffffff
+    color ul #ffffff
+end color
+
+begin attributes
+    title "%appname() %exec(whoami)@%exec(hostname) | %exec(date +%%d/%%b/%%Y)"
+    scrollbar_type motif
+    scrollbar_width 10
+    font default 2
+    font proportional 0
+    font 0 5x7
+    font 1 6x10
+    font 2 fixed
+    font 3 8x13
+    font 4 9x15
+    font 5 10x20
+    font 6 12x24
+    font fx shadow black
+end attributes
+
+# transparent tinted black background colour, just the way I like it
+begin imageclasses
+    begin image
+      type background
+      mode trans
+      cmod red   130
+      cmod green 130
+      cmod blue  130
+    end image
+end imageclasses
+
+begin actions
+    bind ctrl shift button3 to string '^[]6;14^G'
+    bind ctrl button3 to menu "Eterm"
+    bind ctrl button2 to string '^[[?30t'
+    bind ctrl button1 to string '^[]5;^G'
+end actions
+
+begin multichar
+    encoding iso-10646
+    font 0 -misc-fixed-medium-r-normal--7-70-75-75-c-50-iso10646-1
+    font 1 -misc-fixed-medium-r-normal--10-100-75-75-c-60-iso10646-1
+    font 2 -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
+    font 3 -misc-fixed-medium-r-normal--14-130-75-75-c-70-iso10646-1
+    font 4 -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1
+end multichar
+
+begin xim
+end xim
+
+begin toggles
+    map_alert 1
+    visual_bell 0
+    login_shell 1
+    scrollbar 1
+    utmp_logging 1
+    meta8 0
+    iconic 0
+    home_on_output 1
+    home_on_input 1
+    no_input 0
+    scrollbar_floating 1
+    scrollbar_right 1
+    scrollbar_popup 1
+    borderless 0
+    double_buffer 0
+    no_cursor 0
+    pause 0
+    xterm_select 0
+    select_line 0
+    select_trailing_spaces 1
+    report_as_keysyms 0
+    itrans 0
+    buttonbar 0
+    resize_gravity 0
+end toggles
+
+begin keyboard
+    smallfont_key less
+    bigfont_key greater
+    app_keypad 0
+    app_cursor 0
+end keyboard
+
+begin misc
+    print_pipe 'lp'
+    save_lines 1024
+    min_anchor_size 0
+    border_width 5
+    term_name xterm
+    debug 0
+end misc
+

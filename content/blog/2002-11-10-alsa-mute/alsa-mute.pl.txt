@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+use strict;
+my $master_info = `amixer get Master`;
+my $enabled = grep(/\[on\]/, $master_info);
+
+if ($enabled) {
+	exec "amixer set Master mute";
+} else {
+	exec "amixer set Master unmute";
+}

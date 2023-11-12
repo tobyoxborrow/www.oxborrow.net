@@ -1,0 +1,47 @@
+# wataru.oxborrow.net:/home/toby/.fluxbox/keys
+
+# windows-like keybindings
+Mod1 Tab :NextWindow
+Mod1 Shift Tab :PrevWindow
+Mod1 F2 :ExecCommand fbrun -pos 595 505
+Mod1 F4 :Close
+Mod4 e :ExecCommand rox ~
+Mod4 r :ExecCommand fbrun -pos 595 505
+None Print import -window root ss-`date +%y%m%d-%H%M%S`.tiff
+
+
+# shade / stick
+Mod1 Return :ShadeWindow
+Shift F1 :StickWindow
+
+
+# vd's (although i prefer the mouse wheel)
+Control F1 :Workspace1
+Control F2 :Workspace2
+Control F3 :Workspace3
+Control F4 :Workspace4
+
+
+# execs
+Mod1 F1 :ExecCommand Eterm
+Mod1 g :ExecCommand gvim
+Mod1 Shift Control W :ExecCommand xmms
+Mod1 Shift Control X :ExecCommand xchat
+Mod1 Shift Control K :ExecCommand xkill
+Mod1 Shift Control Z :ExecCommand xine
+None XF86AudioPlay :ExecCommand xmms -t	# play
+None XF86AudioStop :ExecCommand xmms -s	# stop
+None XF86AudioNext :ExecCommand xmms -f	# next
+None XF86AudioPrev :ExecCommand xmms -r	# prev
+None XF86AudioLowerVolume :ExecCommand xmms-shell -e "- 5"
+None XF86AudioRaiseVolume :ExecCommand xmms-shell -e "+ 5"
+None XF86AudioMute :ExecCommand perl ~/alsa-mute.pl
+None XF86WWW :ExecCommand perl ~/mozilla-remote.pl www.google.com
+None XF86Search :ExecCommand xcalc
+None XF86MyComputer :ExecCommand rox ~
+
+
+# on screen display (uses osd_cat from the xosd package)
+None Caps_Lock :ExecCommand echo "CAPS LOCK" | osd_cat -p bottom --color=green --font="-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-iso8859-1" --shadow=1
+None Scroll_Lock :ExecCommand echo "SCROLL LOCK" | osd_cat -p bottom --color=green --font="-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-iso8859-1" --shadow=1
+None Num_Lock :ExecCommand echo "NUM LOCK" | osd_cat -p bottom --color=green --font="-misc-fixed-medium-r-normal-*-*-200-*-*-c-*-iso8859-1" --shadow=1

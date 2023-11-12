@@ -6,8 +6,10 @@ tags = []
 +++
 While you wait, three pictures of me playing [Day of Defeat](https://web.archive.org/web/20010519135127/http://www.dayofdefeatmod.com/).
 
+{{< thumbnail-grid >}}
 {{< thumbnail src="dod01.jpg" >}}
 {{< thumbnail src="dod02.jpg" >}}
 {{< thumbnail src="dod03.jpg" >}}
+{{</ thumbnail-grid >}}
 
 Granted, they arnt amazing pictures, but hey!

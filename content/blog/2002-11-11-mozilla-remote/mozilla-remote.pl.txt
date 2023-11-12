@@ -1,0 +1,13 @@
+#/usr/bin/perl
+
+use strict;
+my $url = $ARGV[0];
+
+`mozilla -remote "ping()"`;
+
+# $? = false if running, true if not
+if ($?) {
+	exec "mozilla $url";
+} else {
+	exec "mozilla -remote 'openURL($url, new-tab)'";
+}

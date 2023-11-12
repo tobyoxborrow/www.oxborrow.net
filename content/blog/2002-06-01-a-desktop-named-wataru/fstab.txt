@@ -1,0 +1,20 @@
+# wataru.oxborrow.net /etc/fstab
+#
+
+/dev/hda2	/boot       ext2    noauto,noatime			0 2 
+/dev/hda6	/           ext3    noatime				0 1 
+/dev/hda7	/data       ext3    defaults				0 3
+/dev/hda1	/mnt/dos    vfat    defaults                            0 0
+/dev/cdrom	/mnt/cdrom  iso9660 defaults,noauto,ro,users		0 0
+/dev/dvd	/mnt/dvd    udf     defaults,noauto,ro,users 		0 0
+/dev/cdrw	/mnt/cdrw   auto    defaults,noauto,ro,users 		0 0
+/dev/fd0	/mnt/floppy auto    defaults,noauto,rw,users		0 0
+/dev/zip	/mnt/zip    auto    defaults,noauto,rw,users,sync 	0 0
+
+192.168.0.2:/xports/media  /mnt/nfs/media  nfs  noauto,rw,hard,intr,rsize=8192,wsize=8192,nfsvers=3	0 0
+192.168.0.2:/xports/src    /mnt/nfs/src    nfs  noauto,rw,hard,intr,rsize=8192,wsize=8192,nfsvers=3	0 0
+192.168.0.2:/xports/conf   /mnt/nfs/conf   nfs  noauto,rw,hard,intr,rsize=8192,wsize=8192,nfsvers=3	0 0
+
+/dev/hda5	none	swap	sw		0 0
+proc		/proc	proc	defaults	0 0
+

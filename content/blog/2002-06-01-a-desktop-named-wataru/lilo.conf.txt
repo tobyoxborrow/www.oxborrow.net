@@ -1,0 +1,37 @@
+# wataru.oxborrow.net LILO configuration file
+#
+
+lba32 # Allow booting past 1024th cylinder with a recent BIOS
+boot = /dev/hda
+message = /boot/boot_message.txt
+prompt
+timeout = 120
+#append = "hdd=scsi"
+# Override dangerous defaults that rewrite the partition table:
+change-rules
+reset
+# Normal VGA console
+vga = normal
+
+# 2.4.17 preempt
+image = /boot/vmlinuz-2.4.17p
+root = /dev/hda4
+label = Linux-2.4.17p
+read-only
+
+# Preemptive 2.4.14 kernel
+image = /boot/vmlinuz-2.4.14
+root = /dev/hda4
+label = Linux-2.4.14
+read-only
+
+# Preemptive 2.4.12 kernel
+image = /boot/vmlinuz-2.4.12p
+root = /dev/hda4
+label = Linux-2.4.12p
+read-only
+
+# Win98se 
+other = /dev/hda1
+label = Win98
+table = /dev/hda

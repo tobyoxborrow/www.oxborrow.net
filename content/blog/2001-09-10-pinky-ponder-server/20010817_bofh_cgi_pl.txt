@@ -1,0 +1,25 @@
+#!/usr/local/bin/perl
+#
+# ----------------------------------------------------------------------------
+#
+#  BOFH CGI excuse server
+#
+#  Toby Oxborrow <oxborrow.net>
+#  October 2002
+#
+# ----------------------------------------------------------------------------
+
+use strict;
+
+my @quotes;
+
+open (FH, '<bofh_excuses.txt') || die "File error: $!\n";
+@quotes = <FH>;
+close FH;
+
+my $r = $quotes[int(rand @quotes)];
+
+chomp $r;
+
+print "Content-Type: Text/HTML\n\n";
+print "<p>The cause of your problem is...</p><blockquote><i>$r</i></blockquote><p>Refresh for another</p>";

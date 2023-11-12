@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+#
+# ----------------------------------------------------------------------------
+#
+#  Pinky ponder server
+#  (essentially my bofh server with a different text file)
+#
+#  Toby Oxborrow <oxborrow.net>
+#  October 2002
+#
+#  ponders.txt was created using contributions from the following sites:
+#   http://www.sph.umich.edu/~rwatt/ponderin.htm
+#   http://millennium.fortunecity.com/bankhead/111/Pinky_and_the_Brain_link.htm
+#
+# ----------------------------------------------------------------------------
+
+use strict;
+
+my @quotes;
+
+open (FH, '<ponders.txt') || die "File error: $!\n";
+@quotes = <FH>;
+close FH;
+
+my $r = $quotes[int(rand @quotes)];
+
+chomp $r;
+
+print "Content-Type: Text/HTML\n\n";
+print "<p>Are you pondering what I'm pondering?</p><blockquote><i>$r</i></blockquote><p>Refresh for another</p>";

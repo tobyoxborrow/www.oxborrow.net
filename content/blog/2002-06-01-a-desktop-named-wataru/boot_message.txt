@@ -1,0 +1,2 @@
+Linux   - Various GNU/Linux versions available
+Win98   - Microsoft Windows 98SE

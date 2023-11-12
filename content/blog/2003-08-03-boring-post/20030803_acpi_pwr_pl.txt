@@ -1,0 +1,70 @@
+#!/usr/bin/perl
+#
+# nikita.oxborrow.net: /etc/acpi/acpi_pwr.pl
+#
+# Handles change between ac and battery modes
+# Call from acpid events and also at boot using a start script
+#
+
+for my $line (`cat /proc/acpi/battery/BAT1/state`) {
+	if ($line =~ m/charging state:\s+(\w+)/) {
+		if ($1 eq 'discharging') {
+			&pwr_bat;
+		} else {
+			&pwr_ac;
+		}
+		last;
+	}
+}
+
+
+sub pwr_ac
+{
+
+	print "Switching to AC power mode\n";
+
+	# brightness (spicctrl is a sony vaio tool)
+	# values 0-255
+	`/usr/bin/spicctrl -b 100`;
+
+	# energy star (DPMS) features
+	# 1200 = 20 minutes
+	`xset +dpms 0 0 1200`;
+
+	# spindown hdd when idle
+	# see "man hdparm" (-S option)
+	# takes multiples of 5 seconds
+	# 60 = 5 minutes
+	`/sbin/hdparm -q -S 60 /dev/hda`;
+
+	# cpu speed
+	`echo /proc/sys/cpu/0/speed-max > /proc/sys/cpu/0/speed`;
+
+}
+
+
+sub pwr_bat
+{
+
+	print "Switching to battery power mode\n";
+
+	# brightness (spicctrl is a sony vaio tool)
+	# values 0-255
+	`/usr/bin/spicctrl -b 0`;
+
+	# energy star (DPMS) features
+	# dpms [standby] [suspend] [off]
+	# standby and suspend do nothing for me, so I've set to 0
+	`xset +dpms dpms 0 0 120`;
+
+	# spindown hdd when idle
+	# see "man hdparm" (-S option)
+	# takes multiples of 5 seconds
+	# 36 = 3 minutes; 24 = 2m
+	`/sbin/hdparm -q -S 24 /dev/hda`;
+
+	# cpu speed
+	`echo /proc/sys/cpu/0/speed-min > /proc/sys/cpu/0/speed`;
+
+}
+
