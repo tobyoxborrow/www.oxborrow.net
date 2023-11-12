@@ -181,6 +181,9 @@ img.borderless { border: 0; }
 	grid-template-columns: 210px 210px;
 	justify-content: center;
 }
+figure {
+	text-align: center;
+}
 figcaption {
 	color: #333;
 	font: italic smaller sans-serif;
