@@ -9,25 +9,25 @@ body {
 header {
 	border-top: 8px solid #E0E0E2;
 	margin: 0 auto;
-	padding: 0;
+	padding: 0 1em;
 	text-align: left;
-	width: 700px;
+	max-width: 700px;
 }
 main {
 	margin: 4em auto 0;
-	padding: 0;
+	padding: 0 1em;
 	text-align: left;
-	width: 700px;
+	max-width: 700px;
 }
 footer {
 	border-bottom: 18px solid #E0E0E2;
 	margin: 4em auto 0;
-	padding: 0;
+	padding: 0 1em;
 	font-size: 0.8em;
 	font-style: italic;
 	color: #888;
 	text-align: left;
-	width: 700px;
+	max-width: 700px;
 }
 
 
