@@ -171,7 +171,10 @@ img.borderless { border: 0; }
 }
 .hero img {border: 2em solid black;}
 @media only screen and (max-width: 510px) {
-    .hero img {border: 0;}
+    .hero img {
+		width: 60%;
+		height: auto;
+	}
 }
 .hero img.borderless { border: 0; }
 .thumbnail {
