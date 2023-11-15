@@ -40,18 +40,22 @@ title = 'oxborrow.net'
     name = 'Grim Dark'
     pageRef = '/grimdark'
     weight = 4
-[[menu.remote]]
+[[menu.main]]
     name = 'Links'
     url = 'https://pinboard.in/u:tobyoxborrow/'
     weight = 91
-[[menu.remote]]
+	[menu.main.params]
+		class = 'remote'
+[[menu.main]]
     name = 'Social'
     url = 'https://infosec.exchange/@kanzenmaster'
     weight = 92
-	[menu.remote.params]
+	[menu.main.params]
         rel = 'me'
-		class = 'bloop'
-[[menu.remote]]
+		class = 'remote'
+[[menu.main]]
     name = 'Career'
     url = 'https://www.linkedin.com/in/tobyoxborrow/'
     weight = 93
+	[menu.main.params]
+		class = 'remote'

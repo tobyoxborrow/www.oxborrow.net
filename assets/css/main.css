@@ -1,28 +1,27 @@
 body {
-	color: #333;
-	font-family: verdana,sans-serif;
-	font-size: 1em;
 	margin: 0;
 	padding: 0;
-	text-align: centre;
+	font-family: verdana,sans-serif;
+	background-color: #FFF;
+	color: #333;
 }
 header {
 	border-top: 8px solid #E0E0E2;
 	margin: 0 auto;
-	padding: 0 1em;
+	padding: 0 0.5em;
 	text-align: left;
 	max-width: 700px;
 }
 main {
 	margin: 4em auto 0;
-	padding: 0 1em;
+	padding: 0 0.5em;
 	text-align: left;
 	max-width: 700px;
 }
 footer {
 	border-bottom: 18px solid #E0E0E2;
 	margin: 4em auto 0;
-	padding: 0 1em;
+	padding: 0 0.5em;
 	font-size: 0.8em;
 	font-style: italic;
 	color: #888;
@@ -44,10 +43,13 @@ footer {
 }
 
 nav {
-	margin: 0 0 2em;
-	padding: 0;
 	text-transform: lowercase;
 	font-size: 0.9em;
+}
+@media only screen and (max-width: 510px) {
+    nav ul {
+		font-size: 0.7em;
+	}
 }
 nav ul { 
 	list-style: none; 
@@ -68,6 +70,10 @@ nav a:link, nav a:visited {
 }
 nav .local { float: left; }
 nav .remote  { float: right; }
+nav li.remote:not(:last-child) {
+	margin-right: 0;
+	margin-left: 1em;
+}
 
 
 
@@ -81,19 +87,19 @@ h1 {
 }
 
 #showcases {
-	display: grid;
-	grid-template-columns: 19em 19em;
-	justify-content: center;
-	margin: 4em 0 0;
+	display: flex;
+	flex-flow: row wrap;
+	margin: 4em 1em 0;
 	padding: 0;
 }
 .showcase-item {
-	text-align: center;
-	margin: 0 auto 3em;
-	padding: 0;
+	display: flex;
+	flex-flow: row;
+	width: 18em;
+	margin-right: 2em;
+	margin-bottom: 2em;
 }
 .showcase-image {
-	float: left;
 	width: 5em;
 	height: 5em;
 	text-align: left;
@@ -103,9 +109,8 @@ h1 {
 	max-height: 5em;
 }
 .showcase-description {
-	float: left;
 	text-align: left;
-	width: 14em;
+	width: 100%;
 	font-size: 0.9em;
 	margin-left: 1em;
 }
@@ -142,15 +147,18 @@ h1 {
 a:link, a:visited {
 	color: #C03926;
 }
-main time {
+time {
 	font-size: 0.8em;
 	color: #888;
 }
-ul { list-style: square; }
+main ul { list-style: square; }
 
 pre {
 	padding: 1em;
 	white-space: pre-wrap;
+}
+@media only screen and (max-width: 510px) {
+    pre { font-size: 0.8em; }
 }
 
 
@@ -161,7 +169,10 @@ img.borderless { border: 0; }
 	text-align: center;
 	margin: 1em 0;
 }
-.hero img { border: 2em solid black; }
+.hero img {border: 2em solid black;}
+@media only screen and (max-width: 510px) {
+    .hero img {border: 0;}
+}
 .hero img.borderless { border: 0; }
 .thumbnail {
 	text-align: center;

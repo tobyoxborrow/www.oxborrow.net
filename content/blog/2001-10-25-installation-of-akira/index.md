@@ -59,4 +59,4 @@ I edited (using vi) /etc/hosts and added the lines:
 
 That way, from any of my network clients, I could type the name instead of typing the IP address. Eg. in a web browser i could type 'akira' instead of 192.168.0.1, a lot easier no ?
 
-I also added a heap load more to this from http://www.ecst.csuchico.edu/~atman/spam/adblock.shtml to help speed up my browsing experience by removing most of the banner ads.
+I also added a heap load more to this from [http://www.ecst.csuchico.edu/…/adblock.shtml](http://www.ecst.csuchico.edu/~atman/spam/adblock.shtml) to help speed up my browsing experience by removing most of the banner ads.

@@ -62,6 +62,6 @@ References:
 
 - [My C++ version](https://github.com/tobyoxborrow/THuffman)
 - [Python version](https://web.archive.org/web/20070218223407/http://gumuz.looze.net/wordpress/index.php/archives/2004/11/25/huffman-encoding/)
-- http://www.cs.duke.edu/csed/poop/huff/info/
-- [http://cprogramming.com/tutorial/…/huffman.html](https://www.cprogramming.com/tutorial/computersciencetheory/huffman.html)
+- [http://www.cs.duke.edu/…/info/](http://www.cs.duke.edu/csed/poop/huff/info/)
+- [http://cprogramming.com/…/huffman.html](https://www.cprogramming.com/tutorial/computersciencetheory/huffman.html)
 

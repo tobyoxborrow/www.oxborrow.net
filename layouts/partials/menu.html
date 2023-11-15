@@ -5,21 +5,15 @@ Renders a menu for the given menu ID.
 @context {string} menuID The local menu ID.
 @context {string} menuID The remote menu ID.
 
-@example: {{ partial "menu.html" (dict "menuID" "main" "menuRemoteID" "remote" "page" .) }}
+@example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
 */}}
 
 {{- $page := .page }}
 {{- $menuID := .menuID }}
-{{- $menuRemoteID := .menuRemoteID }}
 
 <nav>
 {{- with index site.Menus $menuID }}
-    <ul class="local">
-      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-    </ul>
-{{- end }}
-{{- with index site.Menus $menuRemoteID }}
-    <ul class="remote">
+    <ul>
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
     </ul>
 {{- end }}
@@ -31,16 +25,17 @@ Renders a menu for the given menu ID.
     {{- $attrs := dict "href" .URL }}
     {{- if $page.IsMenuCurrent .Menu . }}
       {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
-    {{- else if $page.HasMenuCurrent .Menu .}}
+    {{- else if $page.HasMenuCurrent .Menu . }}
       {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
     {{- end }}
+    {{- $attrs = merge $attrs (dict "rel" .Params.rel) }}
     {{- $name := .Name }}
     {{- with .Identifier }}
       {{- with T . }}
         {{- $name = . }}
       {{- end }}
     {{- end }}
-    <li>
+    <li {{- with .Params.class }} class="{{ . }}"{{- end -}}>
       <a
         {{- range $k, $v := $attrs }}
           {{- with $v }}
