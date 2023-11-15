@@ -1,19 +1,19 @@
 {{ with .Get "src" }}
 {{ $src := $.Page.Resources.GetMatch (printf "*%s*" ($.Get "src")) }}
 <figure class="hero">
-  {{ if ge $src.Width 800 }}<a href="{{ $src.RelPermalink }}">{{ end }}
-    {{ if gt $src.Width 400 }}
+  {{ if ge $src.Width 900 }}<a href="{{ $src.RelPermalink }}">{{ end }}
+    {{ if gt $src.Width 600 }}
       {{ $thumb := $src }}
       {{ if lt $src.Width $src.Height }}
-        {{ $thumb = $thumb.Resize "x400 webp q80" }}
+        {{ $thumb = $thumb.Resize "x600 webp q80" }}
       {{ else }}
-        {{ $thumb = $thumb.Resize "400x webp q80" }}
+        {{ $thumb = $thumb.Resize "600x webp q80" }}
       {{ end }}
       <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"{{ if $.Get "class" }} class="{{ $.Get "class" }}"{{ end }} />
     {{ else }}
       <img src="{{ $src.RelPermalink }}" width="{{ $src.Width }}" height="{{ $src.Height }}"{{ if $.Get "class" }} class="{{ $.Get "class" }}"{{ end }} />
     {{ end }}
-  {{ if ge $src.Width 800 }}</a>{{ end }}
+  {{ if ge $src.Width 900 }}</a>{{ end }}
   {{ if $.Get "caption" }}<figcaption>{{ $.Get "caption" }}</figcaption>{{ end }}
 </figure>
 {{ end }}

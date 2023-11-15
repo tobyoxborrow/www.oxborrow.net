@@ -169,12 +169,10 @@ img.borderless { border: 0; }
 	text-align: center;
 	margin: 1em 0;
 }
-.hero img {border: 2em solid black;}
-@media only screen and (max-width: 510px) {
-    .hero img {
-		width: 60%;
-		height: auto;
-	}
+.hero img {
+	width: 70%;
+	height: auto;
+	border: 2em solid black;
 }
 .hero img.borderless { border: 0; }
 .thumbnail {
